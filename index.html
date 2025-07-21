@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÉLITE – Mathématiques 3ᵉ Sénégal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c8102e;
+      /* rouge */
+      --secondary: #14213d;
+      /* bleu nuit */
+      --background: #f9f9f9;
+      --text: #222;
+      --accent: #e5e5e5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    header,
+    section,
+    footer {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    nav {
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 2px 8px rgba(20,33,61,0.07);
+      border-bottom: 1px solid var(--accent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+    nav ul {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 600;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+    nav a:hover {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .lang-toggle {
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4em 1em;
+      cursor: pointer;
+      font-size: 1em;
+      margin-left: 1em;
+      transition: background 0.2s;
+    }
+
+    .lang-toggle:hover {
+      background: var(--primary);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .hero img {
+      max-width: 180px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(20, 33, 61, 0.08);
+      background: #fff;
+    }
+
+    .cta-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 0.9em 2.2em;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1em;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(20, 33, 61, 0.08);
+    }
+
+    .cta-btn:hover {
+      background: var(--secondary);
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      font-weight: 700;
+    }
+
+    .details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1em 0;
+    }
+
+    .details-list li {
+      margin-bottom: 0.7em;
+      font-size: 1.1em;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5em;
+      flex-wrap: wrap;
+      margin-top: 1em;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--primary);
+    }
+
+    footer {
+      background: linear-gradient(90deg, #c8102e 0%, #14213d 100%);
+      color: #fff;
+      border-top: none;
+      padding: 2em 1em 1em 1em;
+      margin-top: 2em;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+    .footer-logo {
+      margin-bottom: 0.5em;
+    }
+    .footer-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 0.3em;
+    }
+    .footer-contact {
+      display: flex;
+      gap: 1.2em;
+      margin-bottom: 0.5em;
+      justify-content: center;
+    }
+    .footer-icon {
+      font-size: 1.5em;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-icon:hover {
+      color: #ffd700;
+    }
+    .footer-credit {
+      font-size: 0.95em;
+      color: #eee;
+    }
+    @media (min-width: 600px) {
+      .footer-content {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+      }
+      .footer-logo {
+        margin-bottom: 0;
+      }
+      .footer-info {
+        text-align: left;
+      }
+    }
+
+    .logo {
+      height: 44px;
+      margin-right: 1em;
+      vertical-align: middle;
+    }
+
+    .book-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 2em;
+    }
+    .book-visual img {
+      max-width: 180px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(20, 33, 61, 0.18);
+      background: #fff;
+      margin-bottom: 0.5em;
+      border: 3px solid #c8102e;
+    }
+    .book-caption {
+      font-size: 1em;
+      color: #c8102e;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0.2em;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2em;
+      justify-items: center;
+      align-items: center;
+      margin-right: 2em;
+    }
+    .book-frame {
+      background: linear-gradient(135deg, #fff 60%, #f9f2f4 100%);
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(200, 16, 46, 0.18), 0 1.5px 8px rgba(20, 33, 61, 0.10);
+      border: 2.5px solid #c8102e;
+      padding: 0.7em 0.7em 0.3em 0.7em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      height: 220px;
+      transition: transform 0.22s cubic-bezier(.4,1.5,.5,1), box-shadow 0.22s;
+      cursor: pointer;
+      position: relative;
+    }
+    .book-frame:hover {
+      transform: scale(1.06) translateY(-6px);
+      box-shadow: 0 8px 32px rgba(200, 16, 46, 0.22), 0 3px 16px rgba(20, 33, 61, 0.13);
+      z-index: 2;
+    }
+    .book-frame img {
+      max-width: 100%;
+      max-height: 150px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(20, 33, 61, 0.10);
+      margin-bottom: 0.5em;
+      transition: box-shadow 0.2s;
+    }
+    .book-caption {
+      font-size: 1em;
+      color: #c8102e;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0.1em;
+      letter-spacing: 0.01em;
+    }
+
+    @media (min-width: 700px) {
+      .hero {
+        flex-direction: row;
+        text-align: left;
+        gap: 2.5rem;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero img {
+        max-width: 220px;
+      }
+      .book-visual {
+        margin-right: 2em;
+      }
+      .book-grid {
+        margin-right: 2em;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        width: 320px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      header,
+      section,
+      footer {
+        padding: 1.2rem 0.5rem;
+      }
+
+      .section-title {
+        font-size: 1.1em;
+      }
+
+      .cta-btn {
+        font-size: 1em;
+        padding: 0.7em 1.5em;
+      }
+      .book-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7em;
+        margin-right: 0;
+      }
+      .book-frame {
+        width: 90px;
+        height: 120px;
+        padding: 0.2em;
+      }
+      .contact-links {
+        flex-direction: column;
+        gap: 0.7em;
+        align-items: flex-start;
+        margin-top: 1.2em;
+      }
+      .contact-link {
+        font-size: 1.15em;
+        padding: 0.5em 0.2em;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .contact-person {
+        font-size: 1.1em;
+        margin-top: 1em;
+        padding-left: 0.2em;
+      }
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 1em;
+      z-index: 30;
+    }
+    .burger span {
+      display: block;
+      width: 28px;
+      height: 3.5px;
+      margin: 4px 0;
+      background: #14213d;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 800px) {
+      .burger {
+        display: flex;
+      }
+      nav ul.nav-links {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 70vw;
+        max-width: 320px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 16px rgba(20,33,61,0.10);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 2em;
+        padding: 5em 2em 2em 2em;
+        margin: 0;
+        z-index: 20;
+        transition: right 0.32s cubic-bezier(.4,1.5,.5,1);
+        display: flex;
+      }
+      nav ul.nav-links.open {
+        right: 0;
+      }
+      nav ul.nav-links li {
+        width: 100%;
+      }
+      nav ul.nav-links a {
+        font-size: 1.2em;
+        width: 100%;
+        display: block;
+        padding: 0.7em 0;
+        color: #14213d;
+        border-bottom: 1px solid #eee;
+      }
+      nav ul.nav-links a:hover {
+        color: #c8102e;
+        background: #f9f2f4;
+        border-bottom: 2px solid #c8102e;
+      }
+      nav .nav-left {
+        flex: none;
+      }
+      nav {
+        flex-wrap: nowrap;
+      }
+    }
+    @media (max-width: 800px) {
+      nav ul.nav-links {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 70vw;
+        max-width: 320px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 16px rgba(20,33,61,0.10);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 2em;
+        padding: 5em 2em 2em 2em;
+        margin: 0;
+        z-index: 20;
+        transition: right 0.32s cubic-bezier(.4,1.5,.5,1);
+        display: flex;
+      }
+      nav ul.nav-links.open {
+        right: 0;
+      }
+      nav ul.nav-links li {
+        width: 100%;
+      }
+      nav ul.nav-links a {
+        font-size: 1.2em;
+        width: 100%;
+        display: block;
+        padding: 0.7em 0;
+        color: #14213d;
+        border-bottom: 1px solid #eee;
+      }
+      nav ul.nav-links a:hover {
+        color: #c8102e;
+        background: #f9f2f4;
+        border-bottom: 2px solid #c8102e;
+      }
+      nav .nav-left {
+        flex: none;
+      }
+      nav {
+        flex-wrap: nowrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-left">
+      <!-- Logo SVG moderne -->
+      <svg class="logo" width="120" height="44" viewBox="0 0 120 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="44" height="44" rx="10" fill="#c8102e"/>
+        <text x="22" y="29" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="bold" fill="#fff">É</text>
+        <text x="54" y="29" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="bold" fill="#14213d">LITE</text>
+      </svg>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#auteur">Auteur</a></li>
+      <li><a href="#livre">Le livre</a></li>
+      <li><a href="#details">Détails</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="accueil">
+    <div class="hero">
+      <div class="book-grid">
+        <div class="book-frame">
+          <img src="images.jpeg" alt="Couverture du livre ÉLITE – Mathématiques 3ᵉ">
+          <div class="book-caption">ÉLITE – Mathématiques 3ᵉ</div>
+        </div>
+        <div class="book-frame">
+          <img src="images.jpeg" alt="Couverture du livre ÉLITE – Mathématiques 3ᵉ">
+          <div class="book-caption">ÉLITE – Mathématiques 3ᵉ</div>
+        </div>
+        <div class="book-frame">
+          <img src="images.jpeg" alt="Couverture du livre ÉLITE – Mathématiques 3ᵉ">
+          <div class="book-caption">ÉLITE – Mathématiques 3ᵉ</div>
+        </div>
+        <div class="book-frame">
+          <img src="images.jpeg" alt="Couverture du livre ÉLITE – Mathématiques 3ᵉ">
+          <div class="book-caption">ÉLITE – Mathématiques 3ᵉ</div>
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1>ÉLITE – Mathématiques 3ᵉ Sénégal</h1>
+        <p>Le compagnon idéal pour réussir le BFEM !</p>
+        <button class="cta-btn" onclick="window.location.href='#contact'">Commander</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="auteur">
+    <h2 class="section-title">À propos de l’auteur</h2>
+    <p>
+      Florent OUEDRAOGO, enseignant passionné et expert en mathématiques, s’engage depuis plus de 20 ans pour la réussite des élèves au Sénégal. Sa mission : rendre les mathématiques accessibles à tous, avec une pédagogie adaptée et des contenus de qualité.
+    </p>
+  </section>
+
+  <section id="livre">
+    <h2 class="section-title">À propos du livre</h2>
+    <ul class="details-list">
+      <li>Conforme au programme sénégalais</li>
+      <li>Deux tomes : Géométrie & Numérique</li>
+      <li>Exercices contextualisés pour le Sénégal</li>
+      <li>Préparation optimale au BFEM</li>
+    </ul>
+  </section>
+
+  <section id="details">
+    <h2 class="section-title">Détails pratiques</h2>
+    <ul class="details-list">
+      <li><strong>Prix :</strong> 10 000 FCFA</li>
+      <li><strong>Livraison :</strong> Partout au Sénégal en 1 à 3 jours</li>
+      <li><strong>Paiements acceptés :</strong> Orange Money, Wave, carte bancaire</li>
+    </ul>
+    <button class="cta-btn" onclick="window.location.href='#contact'">Commander</button>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-links">
+      <a class="contact-link" href="https://wa.me/+221770362616" target="_blank" rel="noopener">
+        <span>📱</span> WhatsApp
+      </a>
+      <span class="contact-link">+221 77 036 26 16</span>
+      <a class="contact-link" href="mailto:mbayeadama669@gmail.com">
+        <span>✉️</span> mbayeadama669@gmail.com
+      </a>
+    </div>
+    <div class="contact-person">Contactez M.Mbaye (Alou)</div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="44" height="44" rx="10" fill="#c8102e"/>
+          <text x="22" y="29" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="bold" fill="#fff">É</text>
+        </svg>
+      </div>
+      <div class="footer-info">
+        <div class="footer-title">ÉLITE – Mathématiques 3ᵉ Sénégal</div>
+        <div class="footer-contact">
+          <a href="https://wa.me/221774174055" target="_blank" rel="noopener" title="WhatsApp" class="footer-icon">📱</a>
+          <a href="mailto:mbayeadama669@gmail.com" title="Email" class="footer-icon">✉️</a>
+        </div>
+        <div class="footer-credit">Contactez M.Mbaye (Alou) – © 2024 ÉLITE. Tous droits réservés.</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+<script>
+// Menu mobile burger
+const burgerBtn = document.getElementById('burgerBtn');
+const navLinks = document.getElementById('navLinks');
+
+burgerBtn.addEventListener('click', function() {
+  navLinks.classList.toggle('open');
+  document.body.classList.toggle('nav-open');
+});
+// Fermer le menu au clic sur un lien
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    document.body.classList.remove('nav-open');
+  });
+});
+</script>
+</html>
